@@ -252,15 +252,13 @@ void MiCS6814Class::changeSlaveAddress(uint8_t newSlaveAddress) {
  * Display configuration on Serial
  */
 void MiCS6814Class::displayConfig() {
-  if(Serial.available()) {
-    Serial.print("I2C_ADDRESS = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_I2C_ADDRESS));
-    Serial.print("FACTORY_ADC_CH0 = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_FACTORY_ADC_CH0));
-    Serial.print("FACTORY_ADC_CH1 = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_FACTORY_ADC_CH1));
-    Serial.print("FACTORY_ADC_CH2 = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_FACTORY_ADC_CH2));
-    Serial.print("USER_ADC_CH0 = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_USER_ADC_CH0));
-    Serial.print("USER_ADC_CH1 = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_USER_ADC_CH1));
-    Serial.print("USER_ADC_CH2 = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_USER_ADC_CH2));
-  }
+  Serial.print("I2C_ADDRESS = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_I2C_ADDRESS));
+  Serial.print("FACTORY_ADC_CH0 = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_FACTORY_ADC_CH0));
+  Serial.print("FACTORY_ADC_CH1 = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_FACTORY_ADC_CH1));
+  Serial.print("FACTORY_ADC_CH2 = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_FACTORY_ADC_CH2));
+  Serial.print("USER_ADC_CH0 = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_USER_ADC_CH0));
+  Serial.print("USER_ADC_CH1 = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_USER_ADC_CH1));
+  Serial.print("USER_ADC_CH2 = "); Serial.println(readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_USER_ADC_CH2));
 }
 
 /**
