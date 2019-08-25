@@ -16,9 +16,10 @@ The detectable gases are listed below (ppm = parts per million):
 The library supports the version 2 of the Grove Multichannel Gas Sensor, the warmup, the calibration, the change of the I2C address, the control of the heater (for low power consumption) and the output of values in ppm (parts per million).
 
 ## To know before starting...
+  * The library supports only the version 2 of the firmware of the Grove Multichannel Gas Sensor.
   * The Grove Multichannel Gas Sensor works with 3.3V or 5V.
   * The gas sensor MiCS6814 requires minimum 30 minutes preheat time before giving consistent results (also called "burn-in" time or warmup)
-  * This library is largely inspired from the original (library Seed-Studio / Multichannel_Gas_Sensor from Jacky Zhang)[https://github.com/Seeed-Studio/Mutichannel_Gas_Sensor/] but the official library didn't work with the Arduino Nano 33 IoT.
+  * This library is largely inspired from the original (library Seed-Studio / Multichannel_Gas_Sensor from Jacky Zhang)[https://github.com/Seeed-Studio/Mutichannel_Gas_Sensor/] but the official library didn't work properly with the Arduino Nano 33 IoT.
   
 ## How to install the library?
  1. Click on *Clone or download* on GitHub
@@ -34,7 +35,11 @@ The library supports the version 2 of the Grove Multichannel Gas Sensor, the war
  * VCC (red) - Connect to power supply (3.3V or 5V)
  * SDA (white) - Connect to SDA (I2C data)
  * SCL (yellow) - Connect to SCL (I2C clock)
- 
+
+## Basic programs to use your Grove Multichannel Gas Sensor
+In the folder *examples*, you will find various examples to test:
+ * (ReadGasConcentration.ino)[] : Sample the gas concentration and show the concentration of all gases supported in ppm.
+
 ## Links
  * (Official library of Seeed Studio)[https://github.com/Seeed-Studio/Mutichannel_Gas_Sensor/]
  * (Datasheet sensor SGX Sensortech MiCS 6814)[https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/datasheet/Datasheet%20SGX%20MiCS%206814%20rev8.pdf]
