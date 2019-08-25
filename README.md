@@ -38,7 +38,7 @@ The library supports the version 2 of the Grove Multichannel Gas Sensor, the war
 
 ## Basic programs to use your Grove Multichannel Gas Sensor
 In the folder *examples*, you will find various examples to test:
- * (ReadGasConcentration.ino)[] : Sample the gas concentration and show the concentration of all gases supported in ppm.
+ * (ReadGasConcentration.ino)[https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/examples/ReadGasConcentration/ReadGasConcentration.ino] : Sample the gas concentration and show the concentration of all gases supported in ppm.
 
 ## Links
  * (Official library of Seeed Studio)[https://github.com/Seeed-Studio/Mutichannel_Gas_Sensor/]
