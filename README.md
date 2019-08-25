@@ -39,9 +39,9 @@ The library supports the version 2 of the Grove Multichannel Gas Sensor, the war
 ## Basic programs to use your Grove Multichannel Gas Sensor
 In the folder *examples*, you will find various examples to test:
  * [ReadGasConcentration.ino](https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/examples/ReadGasConcentration/ReadGasConcentration.ino) : Sample the gas concentration and show the concentration of all gases supported in ppm.
- * [Calibrate.ino]() : Start the warmup and the calibration process.
- * [DisplayConfig.ino]() : Display the configuration.
- * [ChangeSlaveAddress.ino]() : Change the I2C address.
+ * [Calibrate.ino](https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/examples/Calibrate/Calibrate.ino) : Start the warmup and the calibration process.
+ * [DisplayConfig.ino](https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/examples/DisplayConfig/DisplayConfig.ino) : Display the configuration.
+ * [ChangeSlaveAddress.ino](https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/examples/ChangeSlaveAddress/ChangeSlaveAddress.ino) : Change the I2C address.
  
 ## Usage
 The driver has to be initialized with 1 optional parameter:
