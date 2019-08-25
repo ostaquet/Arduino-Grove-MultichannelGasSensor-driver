@@ -1,3 +1,13 @@
+/******************************************************************************
+ * Arduino-Grove-MultichannelGasSensor-driver                                 *
+ * --------------------                                                       *
+ * Arduino driver for Grove Multichannel Gas sensor (CO, NO2, C2H5OH, H2, NH3 *
+ * CH4, C3H8 and C4H10)                                                       *
+ * Author: Olivier Staquet                                                    *
+ * Last version available on                                                  *
+ * https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/    *
+ ******************************************************************************/
+ 
 #include "Grove_MultichannelGasSensor.h"
 
 /**
