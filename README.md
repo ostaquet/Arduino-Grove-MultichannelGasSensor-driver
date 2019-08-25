@@ -39,6 +39,38 @@ The library supports the version 2 of the Grove Multichannel Gas Sensor, the war
 ## Basic programs to use your Grove Multichannel Gas Sensor
 In the folder *examples*, you will find various examples to test:
  * [ReadGasConcentration.ino](https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/examples/ReadGasConcentration/ReadGasConcentration.ino) : Sample the gas concentration and show the concentration of all gases supported in ppm.
+ * [Calibrate.ino]() : Start the warmup and the calibration process.
+ * [DisplayConfig.ino]() : Display the configuration.
+ * [ChangeSlaveAddress.ino]() : Change the I2C address.
+ 
+## Usage
+The driver has to be initialized with 1 optional parameter:
+  * The I2C address, if not set we are using the address 0x04 by default.
+```
+MiCS6814.begin();
+```
+or the I2C address 0x19:
+```
+MiCS6814.begin(0x19);
+```
+
+If it's the first time that you're using your sensor, it requires to be warmup (heating during a long period of 30 minutes) to cleanup the resistances after the factory process. During the warmup, the integrated LED will blink.
+```
+MiCS6814.warmup();
+```
+
+Before using the driver, it's better to calibrate the sensor. You can do that through the function `calibrate()`. The best is to calibrate the sensor in clean fresh air **every month** (according to [the FAQ of SGX Sensortech](https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/datasheet/FAQ%20for%20SGX%20MiCS%20Gas%20Sensors.pdf)). The calibration saves the R0 values directly on the EEPROM of the Grove subsystem.
+```
+MiCS6814.calibrate();
+```
+
+The reading of the values is done through `get()`. The method `get()` returns the values sampled by the method `sample()`. It means that the reading of the values is always a two steps process: sampling + getting the values you need for your project. It is not required to resample between the `get()`.
+```
+MiCS6814.sample();
+MiCS6814.get(CO);
+MiCS6814.get(NH3);
+MiCS6814.get(H2);
+```
 
 ## Links
  * [Official library of Seeed Studio](https://github.com/Seeed-Studio/Mutichannel_Gas_Sensor/)
