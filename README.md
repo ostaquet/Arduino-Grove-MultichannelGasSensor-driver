@@ -1,7 +1,7 @@
 # Arduino-Grove-MultichannelGasSensor-driver
 Arduino library for Grove Multichannel Gas Sensor based on the SGX Sensortech MiCS 6814 (multichannel gas sensor)
 
-This is a comprehensive Arduino library to obtain gas concentration in the air with the (Grove Multichannel Gas Sensor developed by Seeed Studio)[https://www.seeedstudio.com/Grove-Multichannel-Gas-Sensor.html]. The Grove Multichannel Gas Sensor  is an environment detecting sensor with an I2C interface and a built-in MiCS-6814 which can detect many unhealthy gases. Three gases can be measured simultaneously due to its three channels, so it can help you to monitor the concentration of more than one gas.
+This is a comprehensive Arduino library to obtain gas concentration in the air with the [Grove Multichannel Gas Sensor developed by Seeed Studio](https://www.seeedstudio.com/Grove-Multichannel-Gas-Sensor.html). The Grove Multichannel Gas Sensor  is an environment detecting sensor with an I2C interface and a built-in MiCS-6814 which can detect many unhealthy gases. Three gases can be measured simultaneously due to its three channels, so it can help you to monitor the concentration of more than one gas.
 
 The detectable gases are listed below (ppm = parts per million):
   * Carbon monoxide (CO) from 1 to 1000 ppm
@@ -19,7 +19,7 @@ The library supports the version 2 of the Grove Multichannel Gas Sensor, the war
   * The library supports only the version 2 of the firmware of the Grove Multichannel Gas Sensor.
   * The Grove Multichannel Gas Sensor works with 3.3V or 5V.
   * The gas sensor MiCS6814 requires minimum 30 minutes preheat time before giving consistent results (also called "burn-in" time or warmup)
-  * This library is largely inspired from the original (library Seed-Studio / Multichannel_Gas_Sensor from Jacky Zhang)[https://github.com/Seeed-Studio/Mutichannel_Gas_Sensor/] but the official library didn't work properly with the Arduino Nano 33 IoT.
+  * This library is largely inspired from the original [library Seed-Studio / Multichannel_Gas_Sensor from Jacky Zhang](https://github.com/Seeed-Studio/Mutichannel_Gas_Sensor/) but the official library didn't work properly with the Arduino Nano 33 IoT.
   
 ## How to install the library?
  1. Click on *Clone or download* on GitHub
@@ -38,10 +38,10 @@ The library supports the version 2 of the Grove Multichannel Gas Sensor, the war
 
 ## Basic programs to use your Grove Multichannel Gas Sensor
 In the folder *examples*, you will find various examples to test:
- * (ReadGasConcentration.ino)[https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/examples/ReadGasConcentration/ReadGasConcentration.ino] : Sample the gas concentration and show the concentration of all gases supported in ppm.
+ * [ReadGasConcentration.ino](https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/examples/ReadGasConcentration/ReadGasConcentration.ino) : Sample the gas concentration and show the concentration of all gases supported in ppm.
 
 ## Links
- * (Official library of Seeed Studio)[https://github.com/Seeed-Studio/Mutichannel_Gas_Sensor/]
- * (Datasheet sensor SGX Sensortech MiCS 6814)[https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/datasheet/Datasheet%20SGX%20MiCS%206814%20rev8.pdf]
- * (MiCS Application Notes FAQ from SGX Sensortech)[https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/datasheet/FAQ%20for%20SGX%20MiCS%20Gas%20Sensors.pdf]
- * (SGX Sensortech Metal Oxide Gas Sensors - How to use them and how they perform)[https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/datasheet/SGX%20Metal%20Oxide%20Gas%20Sensors%20V1.pdf]
+ * [Official library of Seeed Studio](https://github.com/Seeed-Studio/Mutichannel_Gas_Sensor/)
+ * [Datasheet sensor SGX Sensortech MiCS 6814](https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/datasheet/Datasheet%20SGX%20MiCS%206814%20rev8.pdf)
+ * [MiCS Application Notes FAQ from SGX Sensortech](https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/datasheet/FAQ%20for%20SGX%20MiCS%20Gas%20Sensors.pdf)
+ * [SGX Sensortech Metal Oxide Gas Sensors - How to use them and how they perform](https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/datasheet/SGX%20Metal%20Oxide%20Gas%20Sensors%20V1.pdf)
