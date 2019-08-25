@@ -64,7 +64,8 @@ Before using the driver, it's better to calibrate the sensor. You can do that th
 MiCS6814.calibrate();
 ```
 
-The reading of the values is done through `get()`. The method `get()` returns the values sampled by the method `sample()`. It means that the reading of the values is always a two steps process: sampling + getting the values you need for your project. It is not required to resample between the `get()`.
+The reading of the values is done through `get()`. The method `get()` returns the values sampled by the method `sample()`. It means that the reading of the values is always a two steps process: sampling + getting the values you need for your project. It is not required to resample between the `get()`. The `get()` method takes the type of gas as parameter: `CO`, `NO2`, `NH3`, `C3H8`, `C4H10`, `CH4`, `H2` or `C2H5OH`.
+
 ```
 MiCS6814.sample();
 MiCS6814.get(CO);
