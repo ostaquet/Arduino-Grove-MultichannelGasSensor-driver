@@ -47,12 +47,12 @@ class MiCS6814Class {
 
     // Start the driver for I2C address slaveAddress
     // By default: use the MICS6814_DEFAULT_I2C_ADDR (0x04)
-    int begin(uint8_t slaveAddress = MICS6814_DEFAULT_I2C_ADDR);
+    uint8_t begin(uint8_t slaveAddress = MICS6814_DEFAULT_I2C_ADDR);
     void end();
 
     // Obtain the firmware version of the Grove Multichannel Gas Sensor
     // Return 0 if unknown, 1 = v1 and 2 = v2
-    int getVersion();
+    uint8_t getVersion();
     
     // Output the configuration on Serial
     void displayConfig();
@@ -73,20 +73,20 @@ class MiCS6814Class {
 
   private:
     // Internal helpers
-    unsigned int readOnCommand(uint8_t command);
-    unsigned int readOnCommand(uint8_t command, uint8_t parameter);
-    int command(uint8_t command, uint8_t parameter);
+    uint16_t readOnCommand(uint8_t command);
+    uint16_t readOnCommand(uint8_t command, uint8_t parameter);
+    uint8_t command(uint8_t command, uint8_t parameter);
     void readRsValues();
-    int ledOn();
-    int ledOff();
-    int heaterOn();
-    int heaterOff();
+    uint8_t ledOn();
+    uint8_t ledOff();
+    uint8_t heaterOn();
+    uint8_t heaterOff();
 
     // Internal variables
     TwoWire* _wire;
     uint8_t _slaveAddress;
-    int r0ByChannel[3] = {0, 0, 0};
-    int rSByChannel[3] = {0, 0, 0};
+    uint8_t r0ByChannel[3] = {0, 0, 0};
+    uint8_t rSByChannel[3] = {0, 0, 0};
 };
 
 extern MiCS6814Class MiCS6814;

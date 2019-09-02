@@ -34,14 +34,14 @@ MiCS6814Class::~MiCS6814Class() {
  *  - RC 2 if the device attached at the slave address is not the device expected
  *  - RC 4 if the device has a different version than v2 (only the v2 is supported)
  */
-int MiCS6814Class::begin(uint8_t slaveAddress) {
-  // Start the Wire prototol
+uint8_t MiCS6814Class::begin(uint8_t slaveAddress) {
+  // Start the Wire protocol
   _slaveAddress = slaveAddress;
   _wire->begin();
 
-  // Check the init with the led (10 attempts)
+  // Check the initialization with the led (10 attempts)
   bool isReady = false;
-  for(int i = 0; i < 10 && !isReady; i++) {
+  for(uint8_t i = 0; i < 10 && !isReady; i++) {
     isReady = ledOn() == 0;
     delay(50);
     ledOff();
@@ -98,9 +98,9 @@ void MiCS6814Class::sample() {
   heaterOn();
   delay(10);
 
-  int cycleCount = 1;
-  int stableCycleCount = 0;
-  int prevValueByChannel[3];
+  uint8_t cycleCount = 1;
+  uint8_t stableCycleCount = 0;
+  uint8_t prevValueByChannel[3];
 
   // First reading
   readRsValues();
@@ -139,9 +139,9 @@ void MiCS6814Class::warmup() {
   delay(10);
   
   // For 30 minutes, let the heater on and blink the led
-  for(int min = 29; min >= 0; min--) {
-     for(int sec = 59; sec >= 0; sec--) {
-        // Show the user that the warmup is in progress...
+  for(uint8_t min = 29; min >= 0; min--) {
+     for(uint8_t sec = 59; sec >= 0; sec--) {
+        // Show the user that the warm up is in progress...
         if((min * 60 + sec) % 2 == 0) {
           ledOn();
         } else {
@@ -174,7 +174,7 @@ void MiCS6814Class::calibrate() {
   // Store the values as R0 on the EEPROM
   Wire.beginTransmission(_slaveAddress);
   Wire.write(MICS6814_CMD_SET_R0);
-  for(int i = 0; i < 6; i++) {
+  for(uint8_t i = 0; i < 6; i++) {
     Wire.write(tmp[i]);
   }
   Wire.endTransmission();
@@ -268,8 +268,8 @@ void MiCS6814Class::displayConfig() {
  *  - 1 = version 1
  *  - 2 = version 2
  */
-int MiCS6814Class::getVersion() {
-  unsigned int value = readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_SET);
+uint8_t MiCS6814Class::getVersion() {
+  uint16_t value = readOnCommand(MICS6814_CMD_READ_EEPROM, MICS6814_EEPROM_ADDR_SET);
   if(value == 0x466) {
     return 2;
   } else if(value == 0xFFFF) {
@@ -283,7 +283,7 @@ int MiCS6814Class::getVersion() {
  * Switch the heater ON
  * Return codes, same as writeRegister()
  */
-int MiCS6814Class::heaterOn() {
+uint8_t MiCS6814Class::heaterOn() {
   return command(MICS6814_CMD_CONTROL_PWR, 0x01);
 }
 
@@ -291,7 +291,7 @@ int MiCS6814Class::heaterOn() {
  * Switch the heater OFF
  * Return codes, same as writeRegister()
  */
-int MiCS6814Class::heaterOff() {
+uint8_t MiCS6814Class::heaterOff() {
   return command(MICS6814_CMD_CONTROL_PWR, 0x00);
 }
 
@@ -299,7 +299,7 @@ int MiCS6814Class::heaterOff() {
  * Switch the LED ON
  * Return codes, same as writeRegister()
  */
-int MiCS6814Class::ledOn() {
+uint8_t MiCS6814Class::ledOn() {
   return command(MICS6814_CMD_CONTROL_LED, 0x01);
 }
 
@@ -307,15 +307,15 @@ int MiCS6814Class::ledOn() {
  * Switch the LED OFF
  * Return codes, same as writeRegister()
  */
-int MiCS6814Class::ledOff() {
+uint8_t MiCS6814Class::ledOff() {
   return command(MICS6814_CMD_CONTROL_LED, 0x00);
 }
 
 /**
  * Read 2 bytes in return of a command sent (without parameter)
- * Return the unsigned int or 0 by default
+ * Return the uint16_t value or 0 by default
  */
-unsigned int MiCS6814Class::readOnCommand(uint8_t command) {  
+uint16_t MiCS6814Class::readOnCommand(uint8_t command) {  
   _wire->beginTransmission(_slaveAddress);
   _wire->write(command);
   _wire->endTransmission();
@@ -325,11 +325,11 @@ unsigned int MiCS6814Class::readOnCommand(uint8_t command) {
 
   uint8_t raw[2];
  
-  for (size_t i = 0; i < 2; i++) {
+  for (uint8_t i = 0; i < 2; i++) {
     raw[i] = _wire->read();
   }
 
-  unsigned int data = 0;
+  uint16_t data = 0;
   data = raw[0];
   data <<= 8;
   data += raw[1];
@@ -338,9 +338,9 @@ unsigned int MiCS6814Class::readOnCommand(uint8_t command) {
 
 /**
  * Read 2 bytes in return of a command sent with a parameter
- * Return the unsigned int or 0 by default
+ * Return the uint16_t or 0 by default
  */
-unsigned int MiCS6814Class::readOnCommand(uint8_t command, uint8_t parameter) {  
+uint16_t MiCS6814Class::readOnCommand(uint8_t command, uint8_t parameter) {  
   _wire->beginTransmission(_slaveAddress);
   _wire->write(command);
   _wire->write(parameter);
@@ -351,11 +351,11 @@ unsigned int MiCS6814Class::readOnCommand(uint8_t command, uint8_t parameter) {
 
   uint8_t raw[2];
  
-  for (size_t i = 0; i < 2; i++) {
+  for (uint8_t i = 0; i < 2; i++) {
     raw[i] = _wire->read();
   }
 
-  unsigned int data = 0;
+  uint16_t data = 0;
   data = raw[0];
   data <<= 8;
   data += raw[1];
@@ -368,7 +368,7 @@ unsigned int MiCS6814Class::readOnCommand(uint8_t command, uint8_t parameter) {
  *  - 0 OK
  *  - 4 Problem during the transmission
  */
-int MiCS6814Class::command(uint8_t command, uint8_t parameter) {
+uint8_t MiCS6814Class::command(uint8_t command, uint8_t parameter) {
   _wire->beginTransmission(_slaveAddress);
   _wire->write(command);
   _wire->write(parameter);
