@@ -1,6 +1,10 @@
 # Arduino-Grove-MultichannelGasSensor-driver
 Arduino library for Grove Multichannel Gas Sensor based on the SGX Sensortech MiCS 6814 (multichannel gas sensor)
 
+[![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/ostaquet/Arduino-Grove-MultichannelGasSensor-driver.svg)](#releases)
+[![GitHub issues](https://img.shields.io/github/issues/ostaquet/Arduino-Grove-MultichannelGasSensor-driver.svg)](https://github.com/ostaquet/Arduino-Grove-MultichannelGasSensor-driver/issues)
+
 This is a comprehensive Arduino library to obtain gas concentration in the air with the [Grove Multichannel Gas Sensor developed by Seeed Studio](https://www.seeedstudio.com/Grove-Multichannel-Gas-Sensor.html). The Grove Multichannel Gas Sensor  is an environment detecting sensor with an I2C interface and a built-in MiCS-6814 which can detect many unhealthy gases. Three gases can be measured simultaneously due to its three channels, so it can help you to monitor the concentration of more than one gas.
 
 The detectable gases are listed below (ppm = parts per million):
